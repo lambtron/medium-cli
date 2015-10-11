@@ -65,8 +65,6 @@ $ medium publish
 
 This command will go through all of the `index.md` files in `./articles`, parse them, and publish them to your Medium account.
 
-
-
 ### `open`
 
 ```
