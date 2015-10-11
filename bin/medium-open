@@ -1,0 +1,36 @@
+#!/usr/bin/env node
+
+var logger = require('../lib/logger');
+var program = require('commander');
+var netrc = require('node-netrc');
+var chalk = require('chalk');
+var open = require('open');
+
+/**
+ * Program
+ */
+
+program
+  .parse(process.argv);
+
+/**
+ * Get url.
+ */
+
+var auth = netrc('api.medium.com');
+
+/**
+ * If no auth.url, then ask user to `medium login` again.
+ */
+
+if (!auth.url) {
+  logger.log('No URL was found! Run `medium login` again to');
+  logger.log('set your Medium URL.');
+  process.exit(1);
+}
+
+/**
+ * Open page.
+ */
+
+open(auth.url);

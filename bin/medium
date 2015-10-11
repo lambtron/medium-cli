@@ -1,0 +1,56 @@
+#!/usr/bin/env node
+
+var exists = require('fs').existsSync;
+var logger = require('../lib/logger');
+var program = require('commander');
+var resolve = require('path').resolve;
+var spawn = require('child_process').spawn;
+
+/**
+ * Usage.
+ */
+
+program
+  .version(require('../package').version)
+  .usage('<command> [options]');
+
+/**
+ * Help.
+ */
+
+program.on('--help', function(){
+  console.log('  Commands:');
+  console.log();
+  console.log('    medium create      create a local blog for the first time');
+  console.log('    medium login       authenticate Medium account with an access token');
+  console.log('    medium publish     publish new blog posts to Medium');
+  console.log();
+});
+
+/**
+ * Parse.
+ */
+
+program.parse(process.argv);
+if (!program.args.length) program.help();
+
+/**
+ * Settings.
+ */
+
+var cmd = program.args[0];
+var args = process.argv.slice(3);
+var bin = resolve(__dirname, 'medium-' + cmd);
+
+if (!exists(bin)) {
+  logger.log('There is no `%s` command.', cmd);
+  console.log();
+  program.help();
+}
+
+/**
+ * Spawn a new, forwarded child process for the subcommand.
+ */
+
+var child = spawn(bin, args, { stdio: 'inherit' });
+child.on('close', process.exit.bind(process));

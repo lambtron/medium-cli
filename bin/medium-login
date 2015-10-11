@@ -1,0 +1,70 @@
+#!/usr/bin/env node
+
+var medium = require('../lib/medium');
+var logger = require('../lib/logger');
+var resolve = require('path').resolve;
+var program = require('commander');
+var prompt = require('co-prompt');
+var netrc = require('node-netrc');
+var chalk = require('chalk');
+var co = require('co');
+
+/**
+ * Program.
+ */
+
+program
+  .parse(process.argv);
+
+/**
+ * Prompt for token
+ */
+
+co(function *() {
+
+/**
+ * Instructions
+ */
+
+  console.log();
+  logger.log('Please open https://medium.com/me/settings in your browser.');
+  logger.log('At the bottom of the page, under `Integration Tokens`, copy');
+  logger.log('this description:');
+  console.log();
+  logger.log('\"Medium-CLI basic publishing access.\"');
+  console.log();
+  logger.log('Then generate the new token and copy it.');
+  console.log();
+
+  var token = yield prompt('  Paste your Integration Token here: ');
+
+  console.log();
+  logger.log('Authenticating into Medium..');
+
+/**
+ * Get medium user id
+ */
+
+  try {
+    var res = yield medium.userId(token);
+  } catch (e) {
+    logger.fatal('Uh oh! Token did not work.');
+    process.exit(1);
+  }
+
+/**
+ * Save in .netrc
+ */
+
+  netrc.update('api.medium.com', { token: token, userId: res.body.data.id, url: res.body.data.url });
+
+/**
+ * Success?
+ */
+
+  console.log();
+  logger.log('Saved!');
+
+  process.exit(0);
+
+});

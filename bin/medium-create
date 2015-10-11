@@ -1,0 +1,54 @@
+#!/usr/bin/env node
+
+var chalk = require('chalk');
+var Khaos = require('khaos');
+var logger = require('../lib/logger');
+var program = require('commander');
+var read = require('read-metadata').sync;
+var resolve = require('path').resolve;
+
+/**
+ * Program.
+ */
+
+program
+  .usage('<directory>')
+  .parse(process.argv);
+
+/**
+ * Settings.
+ */
+
+var dest = program.args[0];
+if (!dest) {
+  logger.log('Pass the name of the directory to create your blog in.');
+  logger.log('Run `medium create --help` for more information.');
+  return;
+}
+
+/**
+ * Settings.
+ */
+
+dest = resolve(dest);
+var template = resolve(__dirname, '../lib/create/template');
+
+/**
+ * Khaos.
+ */
+
+var khaos = new Khaos(template)
+  .format({
+    pad: false,
+    separator: ' ',
+    prefix: '        ' + chalk.gray('·') + ' '
+  });
+
+/**
+ * Run.
+ */
+
+khaos.generate(dest, function(err){
+  if (err) logger.fatal(err);
+  logger.log('Successfully created your blog!');
+});
