@@ -1,0 +1,24 @@
+{
+  "name": "medium-cli",
+  "private": true,
+  "bin": {
+    "medium": "bin/medium"
+  },
+  "dependencies": {
+    "chalk": "^1.0.0",
+    "co": "^4.6.0",
+    "co-fs-extra": "^1.1.0",
+    "co-prompt": "^1.0.0",
+    "commander": "^2.6.0",
+    "gray-matter": "^2.0.1",
+    "indent": "0.0.1",
+    "is-utf8": "^0.2.0",
+    "khaos": "^0.9.3",
+    "medium-sdk": "0.0.1",
+    "node-netrc": "^0.1.0",
+    "open": "0.0.5",
+    "read-metadata": "^1.0.0",
+    "recursive-readdir": "^1.2.1",
+    "superagent": "^1.4.0"
+  }
+}
