@@ -14,7 +14,6 @@
     "indent": "0.0.1",
     "is-utf8": "^0.2.0",
     "khaos": "^0.9.3",
-    "medium-sdk": "0.0.1",
     "node-netrc": "^0.1.0",
     "open": "0.0.5",
     "read-metadata": "^1.0.0",
