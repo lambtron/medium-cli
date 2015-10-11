@@ -1,6 +1,25 @@
 {
   "name": "medium-cli",
-  "private": true,
+  "description": "Medium via CLI",
+  "version": "0.0.1",
+  "main": "./bin/medium",
+  "keywords": [
+    "medium",
+    "blog",
+    "blogging",
+    "publish",
+    "post",
+    "cli"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "https://www.github.com/lambtron/medium-cli"
+  },
+  "engines": {
+    "node": ">= 0.11.x",
+    "npm": ">= 2.5.x"
+  },
+  "preferGlobal": "true",
   "bin": {
     "medium": "bin/medium"
   },
