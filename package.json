@@ -19,6 +19,7 @@
     "open": "0.0.5",
     "read-metadata": "^1.0.0",
     "recursive-readdir": "^1.2.1",
+    "reject": "0.0.1",
     "superagent": "^1.4.0"
   }
 }
