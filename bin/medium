@@ -24,6 +24,7 @@ program.on('--help', function(){
   console.log('    medium create      create a local blog for the first time');
   console.log('    medium login       authenticate Medium account with an access token');
   console.log('    medium publish     publish new blog posts to Medium');
+  console.log('    medium open        open your Medium in the browser');
   console.log();
 });
 
