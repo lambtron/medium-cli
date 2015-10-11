@@ -46,7 +46,7 @@ co(function*() {
 
   for (var i = 0; i < arts.length; i++) {
     try {
-      // var res = yield medium.publish(auth.token, auth.userId, arts[i]);
+      var res = yield medium.publish(auth.token, auth.userId, arts[i]);
     } catch (e) {
       var err = JSON.parse(e.response.error.text);
       logger.fatal('Had trouble posting to Medium: %s', err.errors[0].message);
