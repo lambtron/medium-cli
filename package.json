@@ -1,8 +1,17 @@
 {
   "name": "medium-cli",
   "description": "Medium via CLI",
-  "version": "0.0.1",
+  "version": "0.0.3",
   "main": "./bin/medium",
+  "author": "Andy Jiang andyjiang@gmail.com",
+  "contributors": [{
+    "name": "Andy Jiang",
+    "email": "andyjiang@gmail.com"
+  }],
+  "license": "MIT",
+  "bugs": {
+    "url": "https://www.github.com/lambtron/medium-cli/issues"
+  },
   "keywords": [
     "medium",
     "blog",
