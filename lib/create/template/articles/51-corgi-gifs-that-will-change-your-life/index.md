@@ -1,6 +1,6 @@
 ---
 title: 51 Corgi Gifs That Will Change Your Life
-tags: burrito, gifs, love
+tags: corgis, gifs, derps
 ---
 
 # 1. The happy little corg, smiling his way into your heart.
