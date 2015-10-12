@@ -63,7 +63,7 @@ This command asks you for your Integration Token (which can be retrieved at the 
 $ medium publish
 ```
 
-This command iterates through your `index.md` files in `./articles`, parses them, and publishes them to your Medium account.
+This command iterates through your `index.md` files in `./articles` and publishes the ones that don't have `published: true` in the front matter to your Medium account.
 
 Here is an [example](https://raw.githubusercontent.com/lambtron/medium-cli/master/lib/create/template/articles/12-classic-love-scenes-improved-by-a-chipotle-burrito/index.md) of an `index.md` file:
 
@@ -91,13 +91,15 @@ license: all-rights-reserved
 
 Note that `title` is the only field that is required in the front matter, with all the other ones optional. For a list of the accepted possible parameters, see Medium's API documentation [here](https://github.com/Medium/medium-api-docs/#creating-a-post). `contentFormat` and `content` are not required in the front matter, as they are both added later by the `medium publish` command.
 
+For each successful post, the `medium publish` command also adds `published: true` to the front matter.
+
 ### `open`
 
 ```
 $ medium open
 ```
 
-This will direct your browser to your Medium page.
+This directs your browser to your Medium page. You need to have `medium login` first to set your Medium URL.
 
 ## License (MIT)
 
