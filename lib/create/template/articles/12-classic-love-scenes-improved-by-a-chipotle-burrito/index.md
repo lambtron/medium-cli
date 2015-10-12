@@ -2,7 +2,7 @@
 title: 12 Classic Love Scenes Improved By A Chipotle Burrito
 tags: burrito, gifs, love
 canonicalUrl: www.buzzfeed.com/kincairm/12-classic-love-scenes-improved-by-a-chipotle-burr-a4wp#.iab3N1w76
-status: draft
+publishStatus: draft
 license: all-rights-reserved
 ---
 
