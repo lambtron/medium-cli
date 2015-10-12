@@ -21,7 +21,7 @@ $ medium create buzzfeed
 
 ```
 
-This command will create a new sub directory <directory name> in your current directory, with two fake articles. The directory will look like this:
+This command creates a new sub directory <directory name> in your current directory, with two example articles. The directory looks like this:
 
 ```
 .
@@ -55,7 +55,7 @@ $ medium login
          · Saved!
 ```
 
-This command will ask you for your Integration Token (which can be retrieved at the bottom of this [page](https://medium.com/me/settings)). It'll also auth into Medium with it to get your user information. Lastly, it saves the token, your `userId`, and your URL to your ~/.netrc file.
+This command asks you for your Integration Token (which can be retrieved at the bottom of this [page](https://medium.com/me/settings)). It also auths into Medium to get your user information. Lastly, it saves the token, your `userId`, and your URL to your ~/.netrc file.
 
 ### `publish`
 
@@ -63,7 +63,33 @@ This command will ask you for your Integration Token (which can be retrieved at 
 $ medium publish
 ```
 
-This command will go through all of the `index.md` files in `./articles`, parse them, and publish them to your Medium account.
+This command iterates through your `index.md` files in `./articles`, parses them, and publishes them to your Medium account.
+
+Here is an [example](https://raw.githubusercontent.com/lambtron/medium-cli/master/lib/create/template/articles/12-classic-love-scenes-improved-by-a-chipotle-burrito/index.md) of an `index.md` file:
+
+```markdown
+---
+title: 12 Classic Love Scenes Improved By A Chipotle Burrito
+tags: burrito, gifs, love
+canonicalUrl: www.buzzfeed.com/kincairm/12-classic-love-scenes-improved-by-a-chipotle-burr-a4wp#.iab3N1w76
+publishStatus: draft
+license: all-rights-reserved
+---
+
+# 1. Titanic (1997)
+
+![](http://ak-hdl.buzzfed.com/static/2014-04/enhanced/webdr05/28/11/enhanced-21200-1398697731-24.jpg)
+
+# 2. The Notebook (2004)
+
+![](http://ak-hdl.buzzfed.com/static/2014-04/enhanced/webdr06/28/11/enhanced-13907-1398700313-2.jpg)
+
+# 3. Dirty Dancing (1987)
+
+![](http://ak-hdl.buzzfed.com/static/2014-04/enhanced/webdr04/28/11/enhanced-31301-1398697944-9.jpg)
+```
+
+Note that `title` is the only field that is required in the front matter, with all the other ones optional. For a list of the accepted possible parameters, see Medium's API documentation [here](https://github.com/Medium/medium-api-docs/#creating-a-post). `contentFormat` and `content` are not required in the front matter, as they are both added later by the `medium publish` command.
 
 ### `open`
 
