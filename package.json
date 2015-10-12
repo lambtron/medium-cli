@@ -1,7 +1,7 @@
 {
   "name": "medium-cli",
   "description": "Medium via CLI",
-  "version": "0.0.3",
+  "version": "0.0.4",
   "main": "./bin/medium",
   "author": "Andy Jiang andyjiang@gmail.com",
   "contributors": [{
