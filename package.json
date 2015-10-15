@@ -1,13 +1,15 @@
 {
   "name": "medium-cli",
   "description": "Medium via CLI",
-  "version": "0.0.5",
+  "version": "0.0.7",
   "main": "./bin/medium",
   "author": "Andy Jiang andyjiang@gmail.com",
-  "contributors": [{
-    "name": "Andy Jiang",
-    "email": "andyjiang@gmail.com"
-  }],
+  "contributors": [
+    {
+      "name": "Andy Jiang",
+      "email": "andyjiang@gmail.com"
+    }
+  ],
   "license": "MIT",
   "bugs": {
     "url": "https://www.github.com/lambtron/medium-cli/issues"
@@ -47,6 +49,7 @@
     "read-metadata": "^1.0.0",
     "recursive-readdir": "^1.2.1",
     "reject": "0.0.1",
-    "superagent": "^1.4.0"
+    "superagent": "^1.4.0",
+    "thunkify-wrap": "^1.0.4"
   }
 }
