@@ -55,6 +55,15 @@ $ medium login
          · Saved!
 ```
 
+### `publications`
+
+```
+$ medium publications
+List of medium publications (id - url)
+c8sdks9df - https://medium.com/publication_url
+
+```
+
 This command asks you for your Integration Token (which can be retrieved at the bottom of this [page](https://medium.com/me/settings)). It also auths into Medium to get your user information. Lastly, it saves the token, your `userId`, and your URL to your ~/.netrc file.
 
 ### `publish`
@@ -91,7 +100,7 @@ license: all-rights-reserved
 
 Note that `title` is the only field that is required in the front matter, with all the other ones optional. For a list of the accepted possible parameters, see Medium's API documentation [here](https://github.com/Medium/medium-api-docs/#creating-a-post). `contentFormat` and `content` are not required in the front matter, as they are both added later by the `medium publish` command.
 
-For each successful post, the `medium publish` command also adds `published: true` to the front matter.
+For each successful post, the `medium publish` command also adds `published: true` to the front matter. Note that you can add a `publicationID` to the front matter to publish to a publication instead of your personal blog.
 
 ### `open`
 
