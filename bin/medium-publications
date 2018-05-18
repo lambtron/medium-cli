@@ -1,0 +1,56 @@
+#!/usr/bin/env node
+
+var logger = require('../lib/logger');
+var medium = require('../lib/medium');
+var resolve = require('path').resolve;
+var program = require('commander');
+var prompt = require('co-prompt');
+var netrc = require('node-netrc');
+var chalk = require('chalk');
+var co = require('co');
+
+/**
+ * Program
+ */
+
+program
+  .parse(process.argv);
+
+/**
+ * Look for new articles.
+ */
+
+co(function*() {
+
+/**
+ * Get token from .netrc
+ */
+
+  var auth = netrc('api.medium.com');
+  if (!auth.token) {
+    logger.log('Looks like you haven\'t set your Integration Token yet!');
+    logger.log('Run `medium login` for more information.');
+    process.exit(1);
+  }
+
+
+
+  /**
+   * Get Publications
+   */
+
+    try {
+      let res = yield medium.getPublications(auth.token, auth.userId);
+      let data = res.body.data
+      console.log("List of medium publications (id - url)")
+      data.forEach((d) => {
+        console.log(`${d.id} - ${d.url}`);
+      });
+    } catch (e) {
+      console.log(e)
+      var err = JSON.parse(e.response.error.text);
+      logger.fatal('Had trouble getting Publications from Medium: %s', err.errors[0].message);
+    }
+
+  process.exit(0);
+});
